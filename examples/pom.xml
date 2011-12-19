@@ -133,5 +133,10 @@
       <artifactId>test-bundle</artifactId>
       <version>0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>org.neo4j.examples.osgi</groupId>
+      <artifactId>sdn-test-bundle</artifactId>
+      <version>0.0.1.BUILD-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

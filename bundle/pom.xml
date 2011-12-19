@@ -11,12 +11,12 @@
 
   <groupId>org.neo4j</groupId>
   <artifactId>neo4j-osgi-bundle</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>1.5.0</version>
   <packaging>bundle</packaging>
 
   <name>Neo4j OSGi default bundle</name>
   <properties>
-    <neo4j.version>1.6-SNAPSHOT</neo4j.version>
+    <neo4j.version>1.5</neo4j.version>
     <bundle.namespace>org.neo4j</bundle.namespace>
   </properties>
   <dependencies>
@@ -25,14 +25,93 @@
       <artifactId>neo4j</artifactId>
       <version>${neo4j.version}</version>
       <scope>runtime</scope>
+      <exclusions>
+      	<exclusion>
+    	  <groupId>org.apache.geronimo.specs</groupId>
+	      <artifactId>geronimo-jta_1.1_spec</artifactId>
+      	</exclusion>
+      </exclusions>
     </dependency>
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-cypher-dsl</artifactId>
+      <version>1.5.M1</version>
+      <scope>runtime</scope>
+    </dependency>
+<!-- Dependencies for cypher-dsl with querydsl -->
+<!--
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-cypher-dsl</artifactId>
+      <version>1.5.M1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.mysema.querydsl</groupId>
+      <artifactId>querydsl-core</artifactId>
+      <version>2.2.5</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.mysema.querydsl</groupId>
+      <artifactId>querydsl-lucene</artifactId>
+      <version>2.2.5</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.mysema.codegen</groupId>
+      <artifactId>codegen</artifactId>
+      <version>0.4.5</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>com.springsource.org.apache.tools.ant</artifactId>
+      <version>1.8.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>com.springsource.org.apache.tools.ant.launch</artifactId>
+      <version>1.8.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>com.springsource.org.apache.tools.ant.nodep</artifactId>
+      <version>1.7.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.objectweb.asm</groupId>
+      <artifactId>com.springsource.org.objectweb.asm.util</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.objectweb.asm</groupId>
+      <artifactId>com.springsource.org.objectweb.asm.tree</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.objectweb.asm</groupId>
+      <artifactId>com.springsource.org.objectweb.asm.tree.analysis</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>com.springsource.slf4j.simple</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xml</groupId>
+      <artifactId>com.springsource.org.apache.xml.resolver</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+-->
+    
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>org.osgi.compendium</artifactId>
       <version>4.2.0</version>
       <scope>provided</scope>
     </dependency>
-
 
     <!-- For sane logging -->
     <dependency>
@@ -42,7 +121,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
@@ -55,8 +133,8 @@
             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Name>${project.name}</Bundle-Name>
             <Bundle-Version>${project.version}</Bundle-Version>
-            <Import-Package>!javax.transaction.*,!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
-            <Export-Package>org.neo4j.*;version="${neo4j.version}",*</Export-Package>
+            <Import-Package>!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,!com.mysema.query.*,!org.neo4j.*,!scala.*,!org.apache.lucene.*,javax.annotation.*;version="0",javax.transaction.*;version="[1.0.1, 2.0.0)",*;</Import-Package>
+            <Export-Package>org.neo4j.cypherdsl*;version="${neo4j.version}";resolution:="optional",org.neo4j.cypher*;version="${neo4j.version}";resolution:="optional",org.neo4j.*;version="${neo4j.version}",scala.*,org.apache.lucene.*</Export-Package>
             <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
           </instructions>

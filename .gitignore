@@ -1,2 +1,3 @@
 target/
-        
+sdn-test-bundle/var
+sdn-test-bundle/src/main/resources/META-INF/MANIFEST.MF        
