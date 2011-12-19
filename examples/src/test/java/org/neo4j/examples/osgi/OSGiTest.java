@@ -50,7 +50,7 @@ public class OSGiTest {
         Player player = new Player().with(
             options(
                 autoWrap(),
-                felix(),
+                //felix(),
                 equinox(),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 cleanCaches(),
@@ -77,13 +77,13 @@ public class OSGiTest {
                 autoWrap(),
                // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
-                felix(),
+                //felix(),
                 equinox(),
                 cleanCaches(),
                 //mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
-                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" ),
-                mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( "1.1.1" )
+                mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( "1.1.1" ),
+                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" )
             )
         );
         test(player);
