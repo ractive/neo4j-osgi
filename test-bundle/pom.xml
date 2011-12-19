@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-osgi-bundle</artifactId>
-			<version>0.1-SNAPSHOT</version>
+			<version>1.5.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -39,11 +39,11 @@
 			<version>4.2.0</version>
 			<scope>provided</scope>
 		</dependency>
-	        <dependency>
-                  <groupId>org.springframework.data</groupId>
-                  <artifactId>spring-data-neo4j-aspects</artifactId>
-                  <version>2.0.0.BUILD-SNAPSHOT</version>
-                </dependency>
+		<dependency>
+		  <groupId>org.apache.geronimo.specs</groupId>
+	      <artifactId>geronimo-jta_1.1_spec</artifactId>
+	      <version>1.1.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
