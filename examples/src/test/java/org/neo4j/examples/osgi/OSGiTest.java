@@ -57,7 +57,7 @@ import org.osgi.framework.Constants;
 
 public class OSGiTest {
 
-    public static final String NEO4J_OSGI_BUNDLE_VERSION = "1.6.0.BUILD-SNAPSHOT";
+    public static final String NEO4J_OSGI_BUNDLE_VERSION = "1.6.1";
     public static final String GERONIMO_JTA_VERSION = "1.1.1";
 
     @Ignore @Test
@@ -104,7 +104,7 @@ public class OSGiTest {
         test(player, 11);
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void bundleSdnTest()
         throws Exception

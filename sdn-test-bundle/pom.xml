@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>org.neo4j.build</groupId>
 		<artifactId>osgi-build</artifactId>
-		<version>1.6.0.BUILD-SNAPSHOT</version>
+		<version>1.6.1</version>
 	</parent>
 
 	<groupId>org.neo4j.examples.osgi</groupId>
 	<artifactId>sdn-test-bundle</artifactId>
-	<version>1.6.0.BUILD-SNAPSHOT</version>
+	<version>1.6.1</version>
 	<name>sdn-test-bundle</name>
 	<url>http://maven.apache.org</url>
 
@@ -19,7 +19,7 @@
 	  <aspectj.version>1.6.12</aspectj.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<bundle.namespace>org.neo4j</bundle.namespace>
-		<spring-data-neo4j.version>2.0.0.RELEASE</spring-data-neo4j.version>
+		<spring-data-neo4j.version>2.0.1.RELEASE</spring-data-neo4j.version>
 	</properties>
 
 	<dependencies>

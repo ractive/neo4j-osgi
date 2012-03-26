@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.neo4j.build</groupId>
     <artifactId>osgi-build</artifactId>
-    <version>1.6.0.BUILD-SNAPSHOT</version>
+    <version>1.6.1</version>
   </parent>
 
   <groupId>org.neo4j.examples</groupId>
   <artifactId>neo4j-osgi-examples</artifactId>
-  <version>1.6.0.BUILD-SNAPSHOT</version>
+  <version>1.6.1</version>
 
   <name>Neo4j OSGi examples</name>
   <properties>
