@@ -11,7 +11,7 @@
 
   <groupId>org.neo4j</groupId>
   <artifactId>neo4j-osgi-bundle</artifactId>
-  <version>1.6.1</version>
+  <version>1.6.1.2</version>
   <packaging>bundle</packaging>
 
   <name>Neo4j OSGi default bundle</name>
@@ -35,6 +35,12 @@
       <groupId>org.neo4j</groupId>
       <artifactId>neo4j-cypher-dsl</artifactId>
       <version>1.6</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-graphviz</artifactId>
+      <version>${neo4j.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
