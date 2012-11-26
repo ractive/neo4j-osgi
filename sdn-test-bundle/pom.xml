@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>org.neo4j.build</groupId>
 		<artifactId>osgi-build</artifactId>
-		<version>1.6.1</version>
+		<version>1.6.3</version>
 	</parent>
 
 	<groupId>org.neo4j.examples.osgi</groupId>
 	<artifactId>sdn-test-bundle</artifactId>
-	<version>1.6.1</version>
+	<version>1.6.3</version>
 	<name>sdn-test-bundle</name>
 	<url>http://maven.apache.org</url>
 
