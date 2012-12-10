@@ -12,12 +12,14 @@
 
 	<groupId>org.neo4j</groupId>
 	<artifactId>neo4j-osgi-bundle</artifactId>
-	<version>1.6.3.1</version>
+	<version>1.9.0.M02</version>
 	<packaging>bundle</packaging>
 
 	<name>Neo4j OSGi default bundle</name>
 	<properties>
 		<bundle.namespace>org.neo4j</bundle.namespace>
+		<neo4j.version>1.9.M02</neo4j.version>
+		<neo4j.bundle.version>1.9.0.M02</neo4j.bundle.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,36 +27,33 @@
 			<artifactId>neo4j</artifactId>
 			<version>${neo4j.version}</version>
 			<scope>runtime</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
-					<artifactId>geronimo-jta_1.1_spec</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-com</artifactId>
-			<version>1.6.3</version>
+			<version>${neo4j.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-backup</artifactId>
-			<version>1.6.3</version>
+			<version>${neo4j.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
 			<version>2.4.1</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-cypher-dsl</artifactId>
-			<version>1.6</version>
+			<version>1.9-SNAPSHOT</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -71,9 +70,6 @@
 			<version>4.2.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-
-
 
 		<!-- For sane logging -->
 		<dependency>
@@ -96,10 +92,10 @@
 						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-Version>${project.version}</Bundle-Version>
-						<Import-Package>!com.sun.*,!sun.misc.*,com.mysema.query.*;version="[2.2.5,3)";resolution:="optional",org.codehaus.jackson.*;version="[1.9.1,2)";resolution:="optional",javax.transaction.*;version="[1.0.1,2.0.0)",!org.jboss.logging.*,*</Import-Package>
+						<Import-Package>!sun.reflect,!com.sun.*,!sun.misc.*,!com.mysema.query.*;version="[2.2.5,3)";resolution:="optional",groovy.lang;resolution:="optional",org.codehaus.janino;resolution:="optional",org.codehaus.commons.compiler;resolution:="optional",org.codehaus.groovy.*;resolution:="optional",org.codehaus.jackson.*;version="[1.9.1,2)";resolution:="optional",javax.transaction.*;version="[1.0.1,2.0.0)",!org.jboss.logging.*,*</Import-Package>
 						<!-- <Export-Package>org.neo4j.*;version="${neo4j.version}"</Export-Package>-->
-						<_exportcontents>org.apache.lucene.*;version="3.5.0",org.neo4j.*;version="${neo4j.version}"</_exportcontents>
-						<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+						<_exportcontents>org.apache.lucene.*;version="3.5.0",org.neo4j.*;version="${neo4j.bundle.version}"</_exportcontents>
+						<Embed-Dependency>*;scope=compile|runtime;artifactId=!concurrentlinkedhashmap-lru|netty|slf4j-api|geronimo-jta*</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 					</instructions>
 				</configuration>
